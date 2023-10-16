@@ -1,0 +1,25 @@
+1. You need to have installed gcc, binutils, bzip2, flex, python, perl, make,
+   find, grep, diff, unzip, gawk, getopt, subversion, libz-dev and libc headers.
+
+2. When you build the SDK for the first time,some internet download operations will be needed,hence the internet service must be avalible on your build code
+  environment.
+
+   --> execute "make menuconfig" , just leave&save it if no configurations need to be changed.
+
+   --> execute "make" (build image) or "make V=99" (build image with compiling log)
+
+NOTE1 : Sometimes the make process will be stopped due to the in-consistent kerenl config option,
+you can do "make kernel_menuconfig" to select some new kernel options or just save&exit to sync 
+the kernel options to consistent. 
+
+3. after 1-st error
+   ynyynyyyyynnynyyyynnyyyynnyynnnyyyy' failed
+
+change: /staging_dir/host/bin/automake and automake-1.11  line ${([^ \t=:+{}]+)}/ to $\{([^ \t=:+{}]+)}/
+
+
+4. after 2-nd error
+   bits/c++config.h: No such file or directory (this error occurs in linux x64 only)
+
+change /staging_dir/rsdk-4.6.4-5281-EB-3.10-0.9.33-m32ub-20141001/include/c++/4.6.4 to 4.6.4_new (rename)
+
